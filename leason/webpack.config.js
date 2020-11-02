@@ -11,10 +11,14 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     mode:'development',
-    entry:'./src/index.js',
+    entry:{
+        main:'./src/index.js',
+        sub:'./src/console.js'
+    },
     output:{
         path:path.resolve(__dirname,'dist'),
-        filename:'bundle.js'
+        filename:'[name].[hash].js',
+        // publicPath:'https://cdn.xx.com'
     },
     devServer:{
         contentBase:'./dist'
