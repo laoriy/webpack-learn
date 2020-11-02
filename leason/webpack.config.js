@@ -1,3 +1,10 @@
+/*
+ * @Author: liuruijun
+ * @Date: 2020-11-02 08:49:22
+ * @LastEditors: liuruijun
+ * @LastEditTime: 2020-11-02 09:36:11
+ * @Description: file content
+ */
 const path = require('path')
 
 module.exports = {
@@ -20,6 +27,10 @@ module.exports = {
                         limit:2048
                     }
                 }
+            },
+            {
+                test:/\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader','postcss-loader']
             }
         ]
     }
