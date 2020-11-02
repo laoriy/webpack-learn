@@ -2,7 +2,7 @@
  * @Author: liuruijun
  * @Date: 2020-11-02 08:49:22
  * @LastEditors: liuruijun
- * @LastEditTime: 2020-11-02 17:10:39
+ * @LastEditTime: 2020-11-02 18:25:09
  * @Description: file content
  */
 const path = require('path')
@@ -15,6 +15,9 @@ module.exports = {
     output:{
         path:path.resolve(__dirname,'dist'),
         filename:'bundle.js'
+    },
+    devServer:{
+        contentBase:'./dist'
     },
     module:{
         rules:[
