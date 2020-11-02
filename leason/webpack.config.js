@@ -2,7 +2,7 @@
  * @Author: liuruijun
  * @Date: 2020-11-02 08:49:22
  * @LastEditors: liuruijun
- * @LastEditTime: 2020-11-02 09:36:11
+ * @LastEditTime: 2020-11-02 16:28:31
  * @Description: file content
  */
 const path = require('path')
@@ -30,8 +30,27 @@ module.exports = {
             },
             {
                 test:/\.scss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader','postcss-loader']
-            }
+                use: [
+                    'style-loader',
+                    {
+                        loader:'css-loader',
+                        options:{
+                            importLoaders:2,
+                            // modules:{
+                            //     localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                            // }
+                        }
+                    },
+                    'postcss-loader',
+                    'sass-loader'
+                ]
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
+                use: {
+                    loader: 'file-loader'
+                }
+            },
         ]
     }
 }
