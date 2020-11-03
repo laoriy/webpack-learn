@@ -2,7 +2,7 @@
  * @Author: liuruijun
  * @Date: 2020-11-02 08:49:22
  * @LastEditors: liuruijun
- * @LastEditTime: 2020-11-02 18:25:09
+ * @LastEditTime: 2020-11-03 18:16:11
  * @Description: file content
  */
 const path = require('path')
@@ -11,7 +11,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     mode:'development',
-    entry:{
+    entry:{ 
         main:'./src/index.js',
         sub:'./src/console.js'
     },
@@ -23,6 +23,7 @@ module.exports = {
     devServer:{
         contentBase:'./dist'
     },
+    devtool: 'source-map', // dev:eval-cheap-module-source-map ,pro:cheap-module-source-map
     module:{
         rules:[
             {
