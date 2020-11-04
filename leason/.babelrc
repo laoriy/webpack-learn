@@ -5,8 +5,9 @@
       {
         "useBuiltIns": "usage",
         "corejs": "3",
-        "targets":{
-          "chrome":"67"
+        "targets": {
+          "chrome": "67",
+          "ie": "9"
         }
       }
     ]
