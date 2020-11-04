@@ -2,28 +2,31 @@
  * @Author: liuruijun
  * @Date: 2020-11-02 08:49:22
  * @LastEditors: liuruijun
- * @LastEditTime: 2020-11-03 18:16:11
+ * @LastEditTime: 2020-11-04 15:02:28
  * @Description: file content
  */
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin') // 打包结束后会自动生成一个html文件，并将打包生成的js自动引入
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const webpack = require('webpack')
 
 module.exports = {
     mode:'development',
     entry:{ 
         main:'./src/index.js',
-        sub:'./src/console.js'
+        // sub:'./src/console.js'
     },
     output:{
         path:path.resolve(__dirname,'dist'),
-        filename:'[name].[hash].js',
-        // publicPath:'https://cdn.xx.com'
+        filename:'[name].js',
+        publicPath:'/'
     },
     devServer:{
-        contentBase:'./dist'
+        contentBase:'./dist',
+        open:true,
+        hot:true
     },
-    devtool: 'source-map', // dev:eval-cheap-module-source-map ,pro:cheap-module-source-map
+    devtool: 'eval-cheap-module-source-map', // dev:eval-cheap-module-source-map ,pro:cheap-module-source-map
     module:{
         rules:[
             {
@@ -56,6 +59,19 @@ module.exports = {
                 ]
             },
             {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1
+                        }
+                    },
+                    'postcss-loader'
+                ]
+            },
+            {
                 test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
                 use: {
                     loader: 'file-loader'
@@ -68,6 +84,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template:'src/index.html'
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new webpack.HotModuleReplacementPlugin()
     ]
 }
