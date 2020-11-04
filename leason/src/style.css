@@ -1,4 +1,4 @@
-div:nth-of-type(odd){
-  background: green;
+div{
+  background: red;
   margin-bottom: 10px;
 }

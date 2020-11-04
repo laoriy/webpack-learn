@@ -2,7 +2,7 @@
  * @Author: liuruijun
  * @Date: 2020-11-02 08:49:22
  * @LastEditors: liuruijun
- * @LastEditTime: 2020-11-04 15:02:28
+ * @LastEditTime: 2020-11-04 18:41:51
  * @Description: file content
  */
 const path = require('path')
@@ -12,21 +12,23 @@ const webpack = require('webpack')
 
 module.exports = {
     mode:'development',
+    target: ['web', 'es5'],
+
     entry:{ 
-        main:'./src/index.js',
-        // sub:'./src/console.js'
+        // main:'./src/index.js',
+        sub:'./src/console.js'
     },
     output:{
         path:path.resolve(__dirname,'dist'),
         filename:'[name].js',
-        publicPath:'/'
+        // publicPath:'/'
     },
     devServer:{
         contentBase:'./dist',
         open:true,
-        hot:true
+        // hot:true
     },
-    devtool: 'eval-cheap-module-source-map', // dev:eval-cheap-module-source-map ,pro:cheap-module-source-map
+    devtool: 'inline-cheap-source-map', // dev:eval-cheap-module-source-map ,pro:cheap-module-source-map
     module:{
         rules:[
             {
@@ -77,6 +79,11 @@ module.exports = {
                     loader: 'file-loader'
                 }
             },
+            { 
+                test: /\.js$/, 
+                exclude: /node_modules/, 
+                loader: "babel-loader"
+            }
         ]
     },
     // 可以在webpack运行到某个时刻的时候，帮你做一些事情
@@ -85,6 +92,6 @@ module.exports = {
             template:'src/index.html'
         }),
         new CleanWebpackPlugin(),
-        new webpack.HotModuleReplacementPlugin()
+        // new webpack.HotModuleReplacementPlugin()
     ]
 }
