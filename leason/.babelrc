@@ -6,10 +6,12 @@
         "useBuiltIns": "usage",
         "corejs": "3",
         "targets": {
-          "chrome": "67",
-          "ie": "9"
+          "chrome": "67"
         }
       }
     ]
+  ],
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import"
   ]
 }
