@@ -5,13 +5,13 @@
       {
         "useBuiltIns": "usage",
         "corejs": "3",
+        "shippedProposals": true,
         "targets": {
-          "chrome": "67"
+          "chrome": "67",
+          "ie": "9"
         }
       }
     ]
   ],
-  "plugins": [
-    "@babel/plugin-syntax-dynamic-import"
-  ]
+  "plugins": ["@babel/plugin-syntax-dynamic-import"]
 }

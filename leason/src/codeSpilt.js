@@ -5,19 +5,21 @@
  * @LastEditTime: 2020-11-05 17:55:32
  * @Description: file content
  */
-import _ from 'lodash'
+// import _ from "lodash";
 // console.log(_.join(['a','b','c']),'***');
 
 const load = async () => {
-  var element = document.createElement('div');
-  // await import(/* webpackChunkName: "lodash" */ 'lodash')
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  console.log(22);
+  var element = document.createElement("div");
+  await import(/* webpackChunkName: "lodash" */ "lodash");
+  element.innerHTML = _.join(["Hello", "webpack"], " ");
   return element;
-}
+};
 
-document.addEventListener('click',()=>{
-  load().then(ele => {
-    document.body.appendChild(ele);
-  })
-})
-
+document.addEventListener("click", () => {
+  load().then((ele) => {
+    const d = document.documentElement || document.body;
+    d.appendChild(ele);
+    console.log(23);
+  });
+});

@@ -78,35 +78,34 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
   ],
-  optimization:{
+  optimization: {
     splitChunks: {
-      chunks: 'all',
+      chunks: "all",
       minSize: 2,
       minChunks: 1,
       maxAsyncRequests: 30,
       maxInitialRequests: 30,
-      automaticNameDelimiter: '~~',
+      automaticNameDelimiter: "~",
       enforceSizeThreshold: 50000,
       cacheGroups: {
         defaultVendors: {
           test: /[\\/]node_modules[\\/]/,
           priority: -10,
-          filename:'vendors.js'
+          name:'vender'
         },
         default: {
           minChunks: 2,
           priority: -20,
-          reuseExistingChunk: true
-        }
-      }
-    }
+          reuseExistingChunk: true,
+        },
+      },
+    },
   },
   output: {
     path: path.resolve(__dirname, "../dist"),
     filename: "[name].js",
-    chunkFilename:"[name].[hash].js"
     // publicPath:'/'
   },
-}
+};
