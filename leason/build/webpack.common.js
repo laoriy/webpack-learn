@@ -2,7 +2,7 @@
  * @Author: liuruijun
  * @Date: 2020-11-05 10:02:41
  * @LastEditors: liuruijun
- * @LastEditTime: 2020-11-05 17:46:21
+ * @LastEditTime: 2020-11-07 17:51:03
  * @Description: file content
  */
 
@@ -32,39 +32,12 @@ module.exports = {
         },
       },
       {
-        test: /\.scss$/,
-        use: [
-          "style-loader",
-          {
-            loader: "css-loader",
-            options: {
-              importLoaders: 2,
-              // modules:{
-              //     localIdentName: '[path][name]__[local]--[hash:base64:5]',
-              // }
-            },
-          },
-          "postcss-loader",
-          "sass-loader",
-        ],
-      },
-      {
-        test: /\.css$/,
-        use: [
-          "style-loader",
-          {
-            loader: "css-loader",
-            options: {
-              importLoaders: 1,
-            },
-          },
-          "postcss-loader",
-        ],
-      },
-      {
         test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
         use: {
           loader: "file-loader",
+          options:{
+            outputPath: 'font/'
+          }
         },
       },
       {
@@ -81,31 +54,19 @@ module.exports = {
     new CleanWebpackPlugin(),
   ],
   optimization: {
+    runtimeChunk: 'single',
+    moduleIds: 'deterministic',
     splitChunks: {
-      chunks: "all",
-      minSize: 2,
-      minChunks: 1,
-      maxAsyncRequests: 30,
-      maxInitialRequests: 30,
-      automaticNameDelimiter: "~",
-      enforceSizeThreshold: 50000,
       cacheGroups: {
-        defaultVendors: {
+        vendor: {
           test: /[\\/]node_modules[\\/]/,
-          priority: -10,
-          name:'vender'
-        },
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true,
+          name: 'vendors',
+          chunks: 'all',
         },
       },
     },
   },
   output: {
-    path: path.resolve(__dirname, "../dist"),
-    filename: "[name].js",
-    // publicPath:'/'
+    path: path.resolve(__dirname, "../dist")
   },
 };

@@ -2,16 +2,24 @@
  * @Author: liuruijun
  * @Date: 2020-11-05 12:00:33
  * @LastEditors: liuruijun
- * @LastEditTime: 2020-11-05 17:55:32
+ * @LastEditTime: 2020-11-07 17:49:54
+ * @Description: file content
+ */
+/*
+ * @Author: liuruijun
+ * @Date: 2020-11-05 12:00:33
+ * @LastEditors: liuruijun
+ * @LastEditTime: 2020-11-07 15:28:01
  * @Description: file content
  */
 // import _ from "lodash";
 // console.log(_.join(['a','b','c']),'***');
-
+// import a from './print.js'
+// a()
 const load = async () => {
-  console.log(22);
+  console.log(33);
   var element = document.createElement("div");
-  await import(/* webpackChunkName: "lodash" */ "lodash");
+  await import(/* webpackPrefetch: true */ /* webpackChunkName: "lodash"*/ "lodash");
   element.innerHTML = _.join(["Hello", "webpack"], " ");
   return element;
 };
