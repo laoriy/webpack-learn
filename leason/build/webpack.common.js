@@ -35,9 +35,9 @@ module.exports = {
         test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
         use: {
           loader: "file-loader",
-          options:{
-            outputPath: 'font/'
-          }
+          options: {
+            outputPath: "font/",
+          },
         },
       },
       {
@@ -54,19 +54,20 @@ module.exports = {
     new CleanWebpackPlugin(),
   ],
   optimization: {
-    runtimeChunk: 'single',
-    moduleIds: 'deterministic',
+    runtimeChunk: "single",
+    moduleIds: "deterministic",
     splitChunks: {
       cacheGroups: {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all',
+          name: "vendors",
+          chunks: "all",
         },
       },
     },
   },
   output: {
-    path: path.resolve(__dirname, "../dist")
+    path: path.resolve(__dirname, "../dist"),
+    publicPath: "/",
   },
 };
