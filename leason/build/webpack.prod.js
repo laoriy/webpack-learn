@@ -1,8 +1,8 @@
 /*
  * @Author: liuruijun
  * @Date: 2020-11-02 08:49:22
- * @LastEditors: liuruijun
- * @LastEditTime: 2020-11-07 15:36:06
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-11-08 10:48:02
  * @Description: file content
  */
 const commonConfig = require('./webpack.common')
@@ -54,9 +54,6 @@ const prodConfig = {
       ]
    },
   plugins: [
-     new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify('production')
-     }),
      new MiniCssExtractPlugin({
         filename:'[name].css',
         chunkFilename:'[name].chunk.css'
