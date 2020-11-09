@@ -1,3 +1,3 @@
-export default function a (){
-  console.log('sddsdd')
+export default function a() {
+    console.log("sddsdd");
 }

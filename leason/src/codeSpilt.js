@@ -17,33 +17,36 @@
 // import a from './print.js'
 // a()
 const load = async () => {
-  console.log(33);
-  var element = document.createElement("div");
-  await import(
-    /* webpackPrefetch: true */ /* webpackChunkName: "lodash"*/ "lodash"
-  );
-  element.innerHTML = _.join(["Hello", "webpack"], " ");
-  return element;
+    console.log(33);
+    var element = document.createElement("div");
+    const a = await import(
+        /* webpackPrefetch: true */ /* webpackChunkName: "lodash"*/ "lodash"
+    );
+    const _ = a.default;
+    element.innerHTML = _.join(["Hello", "webpack"], " ");
+    return element;
 };
 
 document.addEventListener("click", () => {
-  load().then((ele) => {
-    const d = document.documentElement || document.body;
-    d.appendChild(ele);
-    console.log(23);
-  });
+    load().then((ele) => {
+        const d = document.documentElement || document.body;
+        d.appendChild(ele);
+        console.log(23);
+    });
 });
-console.log("serviceWorker" in navigator);
 
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("/service-worker.js")
-      .then((registration) => {
-        console.log("SW registered: ", registration);
-      })
-      .catch((registrationError) => {
-        console.log("SW registration failed: ", registrationError);
-      });
-  });
+    window.addEventListener("load", () => {
+        navigator.serviceWorker
+            .register("/service-worker.js")
+            .then((registration) => {
+                console.log("SW registered: ", registration);
+            })
+            .catch((registrationError) => {
+                console.log("SW registration failed: ", registrationError);
+            });
+    });
 }
+
+let a = 2;
+console.log(a);
