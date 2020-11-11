@@ -2,7 +2,7 @@
  * @Author: liuruijun
  * @Date: 2020-11-02 08:49:22
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-11-08 10:48:02
+ * @LastEditTime: 2020-11-11 08:45:12
  * @Description: file content
  */
 const commonConfig = require("./webpack.common");

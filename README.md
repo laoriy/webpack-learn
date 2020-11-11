@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-26 19:38:43
- * @LastEditTime: 2020-11-10 20:14:54
+ * @LastEditTime: 2020-11-11 08:26:21
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \webpack-learn\README.md
@@ -16,3 +16,5 @@
   3.Plugin应尽可能精简并确定可靠
   4.resolve参数合理配置,不要滥用extensions,alias，mainfile
   5.使用dllplugin提高打包速率
+  6.cdn
+  7.thread-loader,parallel-webpack,happypack多进程打包
