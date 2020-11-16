@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-26 19:38:43
- * @LastEditTime: 2020-11-11 08:26:21
+ * @LastEditTime: 2020-11-11 22:35:38
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \webpack-learn\README.md
@@ -18,3 +18,12 @@
   5.使用dllplugin提高打包速率
   6.cdn
   7.thread-loader,parallel-webpack,happypack多进程打包
+
+
+loader:
+  1.本质是一个函数
+  2.可以直接返回，异步返回，callback
+  3.功能，国际化，异常捕获
+
+plugin:
+ 
