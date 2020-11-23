@@ -1,0 +1,10 @@
+{
+    "type":"object",
+    "properties":{
+        "name": {
+            "description": "This is description of option.name",
+            "type": "string"
+          }
+    },
+    "additionalProperties": false
+}

@@ -10,7 +10,7 @@ const CopyrightWebpackPlugin = require('./plugins/copyright-webpack-plugin')
 const path = require('path')
 module.exports = {
   entry:{
-    main:'./src/inddex.js'
+    main:'./src/index.js'
   },
   output:{
     path:path.resolve(__dirname,'dist'),
