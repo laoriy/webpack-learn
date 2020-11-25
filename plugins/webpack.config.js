@@ -7,6 +7,9 @@
  * @FilePath: \webpack-learn\plugins\webpack.config.js
  */
 const CopyrightWebpackPlugin = require('./plugins/copyright-webpack-plugin')
+const Plugin1 = require('./plugins/plugin1')
+
+
 const path = require('path')
 module.exports = {
   entry:{
@@ -17,6 +20,7 @@ module.exports = {
     filename:'[name].js'
   },
   plugins:[
-    new CopyrightWebpackPlugin({name:'laor'})
+    new CopyrightWebpackPlugin({name:'laor'}),
+    new Plugin1()
   ]
 }
