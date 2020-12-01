@@ -8,6 +8,7 @@
  */
 const CopyrightWebpackPlugin = require('./plugins/copyright-webpack-plugin')
 const Plugin1 = require('./plugins/plugin1')
+const Plugin2 = require('./plugins/plugin2')
 
 
 const path = require('path')
@@ -21,6 +22,7 @@ module.exports = {
   },
   plugins:[
     new CopyrightWebpackPlugin({name:'laor'}),
-    new Plugin1()
+    new Plugin1(),
+    new Plugin2()
   ]
 }
